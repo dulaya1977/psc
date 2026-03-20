@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive PSC Pre-Arrival Checklist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* 1. THE SETUP & SCREEN STYLING */
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #e2e8f0;
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 30px 0;
+            place-items: center;
+            font-family: 'Lato', sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .slide-container {
+            align-items: flex-start;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            min-height: 760px;
+            justify-content: flex-start;
+            overflow: hidden;
+            padding: 30px 40px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            color: #0f172a;
+            font-family: 'Urbanist', sans-serif;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p, li, th, td {
+            color: #334155;
+            font-family: 'Lato', sans-serif;
+            line-height: 1.4;
+        }
+
+        h1 { font-size: 58px; text-align: center; margin-bottom: 15px; color: #1e3a8a;}
+        .subtitle { font-size: 20px; text-align: center; color: #475569; max-width: 900px; margin: 0 auto 30px auto; }
+        .slide-title { font-size: 28px; color: #1e3a8a; margin-bottom: 15px; border-bottom: 3px solid #3b82f6; padding-bottom: 6px; display: inline-block; }
+
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        /* Title Form Inputs */
+        .cover-form { display: flex; flex-direction: column; gap: 20px; width: 600px; margin: 0 auto; background: #f8fafc; padding: 40px; border-radius: 12px; border: 1px solid #cbd5e1;}
+        .cover-field { display: flex; flex-direction: column; gap: 8px; }
+        .cover-field label { font-size: 20px; font-weight: 700; color: #1e293b; }
+        .cover-field input { font-size: 20px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Lato', sans-serif;}
+
+        /* 3. TABLE LAYOUT FOR CHECKLIST */
+        .table-layout { width: 100%; flex-grow: 1; display: flex; flex-direction: column; overflow: visible; }
+        .table-layout table { border-collapse: collapse; width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05); table-layout: fixed;}
+        .table-layout th, .table-layout td { border-bottom: 1px solid #cbd5e1; border-right: 1px solid #cbd5e1; padding: 8px 10px; vertical-align: middle; word-wrap: break-word;}
+        .table-layout td[rowspan] { vertical-align: top; padding-top: 12px; } 
+        .table-layout th { background-color: #f1f5f9; color: #1e293b; font-size: 15px; font-weight: 700; border-bottom: 2px solid #94a3b8; text-align: left;}
+        .table-layout td { font-size: 14px; }
+        .table-layout tr:last-child td { border-bottom: none; }
+
+        tr.category-start td { border-top: 2px solid #94a3b8; }
+
+        /* Checklist Formatting inside Table */
+        .cat-title { font-size: 15px; font-weight: 700; color: #1e3a8a; margin-bottom: 0;}
+        
+        .check-item-td { padding-left: 20px !important; position: relative; font-weight: 500; color: #1e293b; }
+        .check-item-td .bullet { position: absolute; left: 6px; top: 10px; color: #3b82f6; font-size: 10px; }
+        .check-item-td strong { color: #0f172a; }
+
+        .def-list { list-style: none; padding: 0; margin: 0; }
+        .def-list li { margin-bottom: 8px; padding-left: 14px; position: relative; font-size: 13px; color: #b91c1c; }
+        .def-list li::before { content: '►'; color: #ef4444; position: absolute; left: 0; font-size: 10px; top: 3px; }
+
+        .empty-note { font-style: italic; color: #64748b; font-size: 13px;}
+
+        /* Interactive Form Elements */
+        .result-radios { display: flex; flex-direction: row; gap: 8px; align-items: center; justify-content: flex-start;}
+        .radio-item { display: flex; align-items: center; gap: 4px; cursor: pointer; margin: 0; white-space: nowrap;}
+        .radio-item input[type="radio"] { width: 14px; height: 14px; accent-color: #2563eb; cursor: pointer; margin: 0;}
+        .radio-item span { font-size: 13px; font-weight: 600; color: #334155; }
+ 
+        /* Floating Print Button */
+        .floating-print-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #3b82f6; /* 呼應主題的藍色 */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            font-size: 24px;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            z-index: 1000; /* 確保它永遠浮在最上層 */
+        }
+
+        .floating-print-btn:hover {
+            background-color: #2563eb;
+            transform: scale(1.1); /* 滑鼠游標移過去時會微微放大 */
+        }
+
+        /* 當選取 Fail 時，讓所在的 td 儲存格背景變淺粉紅色 */
+        td:has(input[value="Fail"]:checked) {
+            background-color: #fee2e2;
+            transition: background-color 0.2s ease-in-out;
+        }
+       
+        /* 修改此處：將高度調低以適應逐條項目 */
+        .form-input { width: 100%; height: 100%; min-height: 40px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-family: 'Lato', sans-serif; font-size: 13px; resize: vertical; background: #f8fafc; color: #0f172a; box-sizing: border-box; }
+        .form-input:focus { outline: none; border-color: #3b82f6; background: #fff; box-shadow: 0 0 0 2px rgba(59,130,246,0.2);}
+
+        /* Print Instruction Layout */
+        .qa-layout { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; min-height: 600px;}
+        .qa-layout i { font-size: 80px; color: #3b82f6; margin-bottom: 20px; }
+        .qa-layout h2 { font-size: 60px; color: #1e3a8a; margin-bottom: 20px; }
+        .qa-layout p { font-size: 26px; color: #475569; max-width: 800px; line-height: 1.5;}
+
+        /* 4. PRINT STYLES */
+        @media print {
+            .floating-print-btn { display: none !important; } /* 確保列印時按鈕消失 */ 
+            body { background-color: #fff; margin: 0; padding: 0; display: block; }
+            .slide-container {
+                height: auto !important;
+                width: 100% !important;
+                box-shadow: none !important;
+                page-break-after: always;
+                padding: 15px 20px !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+            .slide-container::before, .slide-container::after { display: none; }
+            
+            table { page-break-inside: auto; border: 1px solid #000 !important;}
+            tr { page-break-inside: avoid; page-break-after: auto; }
+            th { background-color: #e2e8f0 !important; color: #000 !important; border: 1px solid #000 !important;}
+            td { border: 1px solid #000 !important; color: #000 !important;}
+            
+            h1, h2, h3, p, label, .subtitle, .slide-title, .check-item-td { color: #000 !important; }
+            .slide-title { border-bottom: 2px solid #000; }
+            .check-item-td .bullet { color: #000 !important; }
+            .def-list li { color: #000 !important; }
+            .def-list li::before { color: #000 !important; }
+            
+            /* 修改此處：列印時的高度也相對縮小 */
+            .form-input { border: 1px solid #000 !important; background: transparent !important; color: #000 !important; height: auto !important; min-height: 30px;}
+            .radio-item input[type="radio"] { appearance: none; border: 1px solid #000; border-radius: 50%; }
+            .radio-item input[type="radio"]:checked { background-color: #000; box-shadow: inset 0 0 0 3px #fff;}
+            .cover-field input { border: 1px solid #000 !important; background: transparent !important; }
+            .cover-form { background: transparent !important; border: 1px solid #000 !important; }
+            
+            #slide10 { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container" id="slide1">
+    <div class="content-area" style="justify-content: center;">
+        <h1>Pre-Arrival Functional<br>Inspection Report</h1>
+        <p class="subtitle">This form is not a questionnaire. Walk to the sites where the devices and equipment are located and conduct functional testing right away.</p>
+        
+        <div class="cover-form">
+            <div class="cover-field">
+                <label>Vessel Name:</label>
+                <input type="text" placeholder="Enter vessel name...">
+            </div>
+            <div class="cover-field">
+                <label>Inspection Date:</label>
+                <input type="date">
+            </div>
+            <div class="cover-field">
+                <label>Master Signature:</label>
+                <input type="text" placeholder="Sign here..." disabled style="background: transparent; border-top: none; border-left: none; border-right: none; border-radius: 0; border-bottom: 2px solid #cbd5e1;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">Area 1: SMS, Documents & Personnel</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">SMS & Records</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Known severe damage to the main engine without risk assessment, reporting, and permanent repair per SMS.</li>
+                                <li>No root cause analysis and preventive measures for historical deficiencies (e.g., OWS 15ppm, sewage high-level alarms).</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct risk assessments & report critical equipment damage per SMS; implement temporary measures.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure closed-loop corrective records for all historical deficiencies.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Document and report any disorders related to critical equipment.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure Critical Equipment records (WMC-20, 21), pre-work permits, Loading Plans, and BW logs are updated and available.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="3"><p class="cat-title">Crew Training & SEA</p></td>
+                        <td rowspan="3">
+                            <ul class="def-list">
+                                <li>Key crew completely unfamiliar with the Shaft Power Limitation (ShaPoLi) system.</li>
+                                <li>Seafarers' Employment Agreement (SEA) missing contract expiry date and paid annual leave quota.</li>
+                                <li>ECDIS familiarization training not conducted.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct practical drills for new systems like ShaPoLi.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Check all Seafarers' Employment Agreements (SEA) for expiry dates and annual leave quotas.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure ECDIS familiarization training is completed and logged.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Rest Hours & Language</p></td>
+                        <td rowspan="4"><span class="empty-note">General ISM & Operational verification.</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure crew's rest hour records exactly match actual activities.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_3_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Verify 15-minute fire patrols reflect on watch schedules and rest hour records.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_3_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Display "Working Language Is English" note in Deck and Engine log books.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_3_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Demonstrate effective English communication if crew is mixed nationalities.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="sms_3_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="sms_3_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">Area 2: Engine Room & Machinery</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="2"><p class="cat-title">Oil Pollution Control</p></td>
+                        <td rowspan="2">
+                            <ul class="def-list">
+                                <li>Excessive oil mixture accumulated at the bottom of the E/R, stern tube drip tray, and purifier area.</li>
+                                <li>Unapproved plastic buckets and rubber hoses used to drain oil.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Thoroughly clean E/R bilges, stern tube drip trays, and purifier areas. Unblock purifier oil drain pipes.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Strictly remove all unapproved plastic buckets and rubber hoses.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="3"><p class="cat-title">ME, AE & Steering</p></td>
+                        <td rowspan="3">
+                            <ul class="def-list">
+                                <li>Main engine damaged since Dec 15 without permanent repair, reducing propulsion.</li>
+                                <li>No. 2 generator lube oil massively leaking from pressure gauge.</li>
+                                <li>Steering gear alarm completely failed; emergency steering exceeded the 28s requirement.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Repair main and auxiliary engine oil leaks.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Test steering gear alarms and conduct an emergency steering time test (must be ≤ 28 seconds).</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>All engine crew must complete training and practice the emergency steering procedure.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Fuel, Ballast & Gauges</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Main high-pressure fuel oil pipe jacket leak alarm and collection missing.</li>
+                                <li>Portable fuel oil sulfur content test exceeded 0.5% limit.</li>
+                                <li>No. 2 ballast pump motor dismantled and not repaired.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Check high-pressure fuel pipe leak alarms. Ensure in-use fuel sulfur content complies (<0.5%).</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_3_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Repair defective ballast pumps or evaluate for downgrade.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_3_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> All engine officers must practice obtaining the boiler water level in the gauge glass.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_3_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Ensure quick-closing devices for oil level gauges of oil tanks are secured with wires.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="er_3_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="er_3_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">Area 3: Fire Fighting Systems</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Fire Pumps & Hoses</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Fire pump & emergency fire pump failed to generate sufficient pressure.</li>
+                                <li>Emergency fire pump room flooded, insulation resistance at 0 Mega-ohms.</li>
+                                <li>Cargo hold side fire main expansion joint leaking. Fire hoses leaking.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Keep emergency pump room dry; motor insulation must be >0 MΩ.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct a loaded running test for main/emergency fire pumps; record outlet pressure in MPa.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Replace leaking fire main joints and hoses. Test remote start of main fire pump.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Inspect fire hoses/boxes (no cracks); check nozzle gaskets are not aged, cracked, or wasted.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Fixed Extinguishing</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>CO2 system pressure abnormal/insufficient, door alarm limit switch stuck.</li>
+                                <li>Cargo hold fixed CO2 installed in 20ft container without permanent securing.</li>
+                                <li>Water-based local application system intentionally shut off.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Check CO2 cylinder pressure, door alarms, and arrangement compliance.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Safety pins MUST be removed from fixed CO2 systems.</strong> Crew familiarized with simulation release.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Never intentionally shut off water-based systems.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Test stopping of power ventilation from outside. Test quick-closing valves for ME/generators.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_2_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_2_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="5"><p class="cat-title">Boundaries & LSA</p></td>
+                        <td rowspan="5">
+                            <ul class="def-list">
+                                <li>Emergency/escape route fire doors cannot close completely; self-closer failed.</li>
+                                <li>Fire doors/fire dampers tied open with ropes. E/R escape route blocked.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Test all fire door self-closers and <strong>remove any ropes/hooks holding doors open.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_3_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Check fire penetrations and clear E/R escape routes. Record simulation escape from E/R with EEBD.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_3_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Mark open/close status on funnel fire dampers. Comprehensive inspection on E/R fan dampers.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_3_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Foam applicator ready in E/R. Ensure SCBA/EEBD fully charged.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_3_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Post correct fire control plan symbol at gangways and update crew list.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ff_3_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ff_3_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">Area 4: Life Saving & Emergency</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="5"><p class="cat-title">Lifeboats & Rescue</p></td>
+                        <td rowspan="5">
+                            <ul class="def-list">
+                                <li>LB engines failed to start via batteries; STBD engine emitted heavy black smoke.</li>
+                                <li>Embarkation ladder steps cracked. Davit limit switch failed, release gear not properly reset.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Test dual battery engine starts and run engines. Replace burst hydraulic pipes and cracked ladder steps.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Verify LB cradle/davit has no cracks, limit switches work, and release gear is reset. Move davit.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Remove Fall Preventer Devices (FPDs) immediately before berthing.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Check hydrostatic interlocks (free to move). Check LB windows & seat belts.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Rescue boat davit operable in "dead ship condition" (manual backup). Manuals readable/illuminated.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_1_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_1_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Liferafts & Suits</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Liferaft release arrangement stuck, embarkation route blocked.</li>
+                                <li>Life-saving appliances missing or expired. Two-way VHF batteries expired.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Clear liferaft embarkation routes and lubricate release. Ensure HRU/liferaft annual service is valid.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure portable lights are provided for the bow liferaft. Check retro-reflective tapes.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Inventory and replace expired LSA and 2-way VHF batteries.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct immersion suit donning practice. Ensure suits fit correctly, no damage, zippers waxed.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_2_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_2_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Emergency Power</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Emergency generator failed to start, losing key emergency power.</li>
+                                <li>Emergency lights at liferaft area failed to illuminate the water.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Test emergency generator auto-start and load-sharing.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_3_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Ensure the diesel oil tank for the emergency generator is full or sufficient.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_3_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Confirm the emergency generator connects automatically to the switchboard.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_3_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct night rounds to check all emergency lights.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="ls_3_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="ls_3_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">Area 5: Structure & Safety Culture</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Hatch Covers & Vents</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Cargo hold hatch weathertightness failed. Rubber packings aged, securing devices mostly failed.</li>
+                                <li>Air pipes and ventilators severely rusted through, float balls stuck.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Replace aged hatch packings, drain valves, and securing bolts. Check coamings for corrosion.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Check all cleats; ensure rubber packing has no missing sections, deep cracks, or depressions.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Hammer-test air pipe heads and natural ventilators; ensure float balls move freely.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Inspect ventilation closing devices indicated on the Fire Control Plan.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Hull & Enclosed Spaces</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Holes in hull structure and bulkheads. Deck and bulwark severely rusted/thinned.</li>
+                                <li>WT/WTD doors severely damaged, cannot close properly.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Inspect/repair hull holes and severe rust; test WT/WTD doors. Repaint freeboard/deck lines.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Post the enclosed space list (WMR-OT-01) in mess rooms and offices.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Post "Unauthorized Entry" signage and apply appropriate locking methods to enclosed spaces.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Check gas detector calibration intervals (6/12 months), working order, and span gas availability.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_2_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_2_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">PPE, Safety & Access</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Heavy objects (steel ladders, pipes) in bosun store unfixed and randomly piled.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure crew wears PPE; engine crew must wear hearing protection (notice posted at E/R entrance).</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_3_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Verify fire curtains, insulation mats (switchboards), covered turbochargers, pump meshes in place.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_3_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Test the ship alarm and public addressing system. Secure heavy objects in bosun store.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_3_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Keep access clear: fire hydrants, bosun store extinguisher, CO2 room, anchor chain bitters.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="st_3_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="st_3_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Area 6: Navigation Equipment</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="5"><p class="cat-title">Lights & Instruments</p></td>
+                        <td rowspan="5">
+                            <ul class="def-list">
+                                <li>STBD side light casing cracked; fore/aft navigation lights failed.</li>
+                                <li>Radar/repeater heading not synchronized with master gyro compass. Wing rudder angle indicator defective.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Replace damaged light casings and paint side light screens matt black. Inspect all lights with housing.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Inspect Day Shapes (balls, cylinders, cones, diamonds) and measure their diameters.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Verify no bubbles in compasses; log observed errors for Gyro, Repeater, and Magnetic compasses.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Check actual running hours of X-band/S-band radar magnetrons vs. manufacturer max limits.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>All deck officers must demonstrate MF/HF DSC test calls (save the receipt).</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_1_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_1_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="5"><p class="cat-title">Passage Plan & ECDIS</p></td>
+                        <td rowspan="5">
+                            <ul class="def-list">
+                                <li>Passage plan missing information, not covering "berth to berth", and not updated to anchorage route.</li>
+                                <li>ECDIS key information (e.g., Under Keel Clearance - UKC) missing or not updated.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Review passage plan to ensure it covers berth-to-berth, includes anchorage info, squat, and UKC.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>"Zero Tide" Policy: Confirm HAT, HoT, and tide heights are set to zero during planning.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Fill in Safety Contour settings (Shallow, Safety, Deep) on ECDIS for waypoints.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Confirm the pilot route plan matches the actual berth and sailing route. Identify No-Go areas.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_2_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure paper copies of IAMSAR Vol III and Code of Signals are available.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="nv_2_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="nv_2_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">Area 7 & 8: Pollution & Security</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies<br><span style="font-size: 12px; font-weight: normal;">(常被開立之缺失)</span></th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="3"><p class="cat-title">OWS & Ballast</p></td>
+                        <td rowspan="3">
+                            <ul class="def-list">
+                                <li>Oily Water Separator (OWS) 15ppm functional test could not be carried out.</li>
+                                <li>Improper ballast water management: portable pump used to transfer water to port ballast tank.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Conduct 15ppm separator alarming test; ensure auto-stop device activates within 20 seconds.</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Ensure the bypass OWS overboard discharge valve is physically "Close".</strong> Check sampling valve.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Never use portable pumps to pump bilge water into ballast tanks. Strictly follow Bunker Checklist.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="4"><p class="cat-title">Sewage & Galley</p></td>
+                        <td rowspan="4">
+                            <ul class="def-list">
+                                <li>Accommodation garbage bins not marked per GMP; Category A/C mismanaged.</li>
+                                <li>Sewage treatment plant chemical dosing pipe connected wrongly, dosing pump failed.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure sewage plant working; <strong>overboard valve fixed in "Close" position in port.</strong> Document discharge rate.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Remark garbage bins per GMP. Ensure no garbage is stored outside designated stations.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Chief Cook must clean galley grease filters (free from oil).</strong></td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Position galley fire blanket in a noticeable spot. Keep galley door closed. Test exhaust trunk damper.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="po_2_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="po_2_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+
+                    <tr class="category-start">
+                        <td rowspan="5"><p class="cat-title">ISPS & Alert Actions</p></td>
+                        <td rowspan="5">
+                            <ul class="def-list">
+                                <li>Security drill not carried out after crew change over 25%.</li>
+                                <li>PSCO boarded directly to the bridge without showing ID and without being checked.</li>
+                            </ul>
+                        </td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct security drill if crew change >25%. Gangway watch rigidly checks IDs and issues visitor cards.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="se_1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Extract and post National contact points info ONLY for the upcoming port.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="se_1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>C/O:</strong> Ensure cargo hold hatch covers are safely secured open & mooring winch safety pins are secured.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="se_1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> <strong>Chief Cook:</strong> Close all self-closing fire doors in the galley immediately.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="se_1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="check-item-td"><span class="bullet">■</span> Stop provisional delivery immediately until PSCO disembarks.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="se_1_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="se_1_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<button class="floating-print-btn" onclick="window.print()" title="Print Checklist">
+    <i class="fa-solid fa-print"></i>
+</button>
+
+</body>
+</html>
