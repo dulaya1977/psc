@@ -87,6 +87,7 @@
 
         /* Checklist Formatting inside Table */
         .cat-title { font-size: 15px; font-weight: 700; color: #1e3a8a; margin-bottom: 0;}
+        .action-code { font-size: 12px; color: #ef4444; font-weight: bold; display: block; margin-top: 4px; }
         
         .check-item-td { padding-left: 20px !important; position: relative; font-weight: 500; color: #1e293b; }
         .check-item-td .bullet { position: absolute; left: 6px; top: 10px; color: #3b82f6; font-size: 10px; }
@@ -109,7 +110,7 @@
             position: fixed;
             bottom: 40px;
             right: 40px;
-            background-color: #3b82f6; /* 呼應主題的藍色 */
+            background-color: #3b82f6;
             color: white;
             border: none;
             border-radius: 50%;
@@ -122,12 +123,12 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.2s ease, background-color 0.2s ease;
-            z-index: 1000; /* 確保它永遠浮在最上層 */
+            z-index: 1000;
         }
 
         .floating-print-btn:hover {
             background-color: #2563eb;
-            transform: scale(1.1); /* 滑鼠游標移過去時會微微放大 */
+            transform: scale(1.1);
         }
 
         /* 當選取 Fail 時，讓所在的 td 儲存格背景變淺粉紅色 */
@@ -136,7 +137,6 @@
             transition: background-color 0.2s ease-in-out;
         }
        
-        /* 修改此處：將高度調低以適應逐條項目 */
         .form-input { width: 100%; height: 100%; min-height: 40px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-family: 'Lato', sans-serif; font-size: 13px; resize: vertical; background: #f8fafc; color: #0f172a; box-sizing: border-box; }
         .form-input:focus { outline: none; border-color: #3b82f6; background: #fff; box-shadow: 0 0 0 2px rgba(59,130,246,0.2);}
 
@@ -148,7 +148,7 @@
 
         /* 4. PRINT STYLES */
         @media print {
-            .floating-print-btn { display: none !important; } /* 確保列印時按鈕消失 */ 
+            .floating-print-btn { display: none !important; }
             body { background-color: #fff; margin: 0; padding: 0; display: block; }
             .slide-container {
                 height: auto !important;
@@ -172,14 +172,14 @@
             .def-list li { color: #000 !important; }
             .def-list li::before { color: #000 !important; }
             
-            /* 修改此處：列印時的高度也相對縮小 */
             .form-input { border: 1px solid #000 !important; background: transparent !important; color: #000 !important; height: auto !important; min-height: 30px;}
             .radio-item input[type="radio"] { appearance: none; border: 1px solid #000; border-radius: 50%; }
             .radio-item input[type="radio"]:checked { background-color: #000; box-shadow: inset 0 0 0 3px #fff;}
             .cover-field input { border: 1px solid #000 !important; background: transparent !important; }
             .cover-form { background: transparent !important; border: 1px solid #000 !important; }
             
-            #slide10 { display: none !important; }
+            /* Hide the alert slide when printing if desired, or keep it */
+            /* #slide14 { display: none !important; } */
         }
     </style>
 </head>
@@ -1386,11 +1386,721 @@
     </div>
 </div>
 
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">Area 9: Analysis of Actual Detention Deficiencies (Part 1 - Geelong, Australia)</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies</th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="10"><p class="cat-title">Geelong,<br>Australia</p></td>
+                        <td>Observed drafts not recorded after each pour on the cargo discharge plan.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Chief Officer must strictly follow the cargo operation manual, ensuring drafts are read and logged systematically at each designated stage.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Excessive oil accumulation on grease filters on galley cooking range hood.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Add galley hood grease filters to the weekly routine cleaning schedule; update and verify the cleaning log by the Chief Cook and Chief Officer.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Safety settings (shallow contour, safety contour & safety depth) entered in ECDIS not in accordance with voyage plan.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Navigating officers must verify that all ECDIS safety parameters perfectly match the approved Master's voyage plan during pre-departure checks.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Port and starboard engine room fan dampers defective. (SOLAS Ch.II-2 / Reg. 5.2.1)<span class="action-code">(Code: 30)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Incorporate fire dampers into the monthly Planned Maintenance System (PMS). Ensure moving parts are greased, tested for free movement, and fully closeable.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Freefall lifeboat stowage cradle post on port side wasted and cracked at deck level.<span class="action-code">(Code: 99)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct monthly structural inspections of Life-Saving Appliances (LSA) launching arrangements. Immediately report cracks/wastage to Class and the Company for repair.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Stern navigation light housing defective.<span class="action-code">(Code: 16)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Bridge team must conduct weekly visual inspections of all navigation lights and housings, replacing cracked or degraded covers promptly.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_6" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_6" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_6" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>No.1 steering gear system incorrectly identified by crew as emergency steering system.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct familiarization training for all bridge and engine personnel. Ensure steering gears are correctly labeled and emergency procedures are clearly posted.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_7" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_7" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_7" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Exhaust gas insulation ducting on turbochargers... held together by combustible masking tape.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Only use approved non-combustible insulation/lagging material in the Engine Room (SOLAS Ch. II-2). Prohibit the use of standard masking tape on high-temperature surfaces.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_8" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_8" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_8" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Fire hose box at the entrance of emergency generator room cracked.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Include fire equipment housings in routine deck maintenance. Replace or repair damaged FRP/plastic boxes to protect safety equipment from weather.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_9" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_9" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_9" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>SMS, as implemented, fails to ensure the maintenance of the ship and equipment...<span class="action-code">(Code: 18)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Master and Chief Engineer must strictly enforce the PMS. Conduct thorough pre-arrival PSC checklists and initiate a comprehensive internal SMS review.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_gee_10" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_10" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_gee_10" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide10">
+    <h2 class="slide-title">Area 9: Analysis of Actual Detention Deficiencies (Part 2 - Port Adelaide)</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies</th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="12"><p class="cat-title">Port Adelaide,<br>Australia<br>(1/2)</p></td>
+                        <td>Bosun store vent defective.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure regular checks of ventilators and air pipes as part of the Load Line maintenance routine. Grease hinges and replace degraded gaskets.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Port and starboard W/T doors to bosun store defective and not watertight... securing dogs defective/missing.<span class="action-code">(Code: 30)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Implement strict maintenance for closing appliances. Replace missing nuts, straighten bent dogs, and conduct chalk-tests to ensure watertight integrity.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Top Side Tank no.1 starboard side bulkhead dented heavily.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Log structural damages properly, report to the Company/Class Society, and maintain an updated damage/repair record on board.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Aft fire hydrant and port side fire hydrant both leaking.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct regular pressure testing of the fire main. Replace worn packing and gaskets on hydrants immediately when leaks are spotted.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Port side aft railing adjacent to port side gangway damaged.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Repair structural damage to railings promptly. Ensure safe access areas comply with rigging procedures and working-aloft safety limits.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Galley vent flap seized.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Assign engineers to regularly grease and physically test galley fire dampers/flaps to prevent seizing from salt and grease buildup.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_6" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_6" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_6" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>GMDSS batteries not secured in place.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Radio Officer or 2/O must inspect the battery room weekly, ensuring that physical securing arrangements (wooden battens/straps) are intact and batteries cannot shift.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_7" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_7" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_7" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Freefall lifeboat seats damaged and soaked with oil.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Investigate and fix oil leaks from the lifeboat engine. Clean the interior thoroughly and replace damaged safety seats/harnesses.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_8" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_8" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_8" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Vegetable room evaporator fan cover dismantled and not secured in place.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Establish a strict "Lock-out/Tag-out" and maintenance culture: all machinery guards and covers must be securely replaced immediately after maintenance is finished.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_9" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_9" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_9" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Crew laundry drying room used for storing ships spares.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Enforce strict housekeeping rules. Drying rooms pose fire risks; do not store combustible items or metal spares that block access or create hazards.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_10" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_10" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_10" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Lifeboat overside emergency light cabling at poop deck aft detached and not secured.<span class="action-code">(Code: 16)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Electrician must conduct routine visual inspections of emergency lighting and external cable trays, securing loose wiring with proper UV-resistant cable ties.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_11" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_11" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_11" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Unsafe access made as access chain not removed to access rescue boat and davit.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct safety familiarization on proper embarkation procedures. Safety chains/rails must be used correctly to prevent fall-overboard incidents.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_12" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_12" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa1_12" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Area 9: Analysis of Actual Detention Deficiencies (Part 3 - Port Adelaide)</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies</th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="11"><p class="cat-title">Port Adelaide,<br>Australia<br>(2/2)</p></td>
+                        <td>Excessive oil leak under no.2 generator.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Chief Engineer to investigate the source of the leak, replace seals/gaskets, and ensure engine room bilges and save-alls are kept clean and dry.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Cargo cranes hook swivels seized and operating cabin glass opaque.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Crane PMS must include greasing the hook swivels. Replace degraded or sun-damaged cabin glass to ensure the operator has a clear line of sight.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Ships spares stored in alley ways restricting crew access.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Spares must be stowed in designated engine or deck stores. Escape routes and alleyways must be kept 100% clear at all times.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Four of main engine indicator cock caps missing.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Check ME indicator cocks during routine engine rounds. Keep spare caps in stock and replace missing ones to prevent high-pressure exhaust hazards.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Numerous engineroom pumps leaking (Fire GS, Bilge Ballast, Cooling SW, etc.)<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Overhaul mechanical seals and gaskets of pumps. Improve the standard of daily engine room inspection routines and address leaks proactively.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Excessive oil leak around forward mooring winches pump and tank in forecastle.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Overhaul hydraulic systems of winches. Clean up hydraulic oil immediately to prevent environmental pollution and slip hazards on deck.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_6" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_6" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_6" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Sewage treatment plant not operated as per manufacturers instructions.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Conduct training for engineers on proper STP operation. Post clear, step-by-step operating instructions directly adjacent to the control panel.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_7" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_7" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_7" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Cascade tank inspection glass opaque, unable to view through.<span class="action-code">(Code: 16)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Clean or replace inspection sight-glasses on tanks during routine maintenance so fluid levels can be accurately monitored visually.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_8" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_8" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_8" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Port side gangway limit switch defective.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Test limit switches of accommodation ladders regularly prior to port arrival. Replace defective switches immediately to ensure automatic stops function.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_9" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_9" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_9" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Port and starboard chain locker bitter end hammer not in place and access restricted.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure the bitter end release mechanism is physically accessible (no obstructions) and the designated striking hammer is secured in place nearby.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_10" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_10" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_10" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>SMS fails to ensure requirements of ISM code-section 7, 8 and 10 are met.<span class="action-code">(Code: 30)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Initiate a major SMS review. Increase the frequency of internal audits, require senior officers to actively supervise maintenance, and improve defect reporting.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_11" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_11" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pa2_11" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide12">
+    <h2 class="slide-title">Area 9: Analysis of Actual Detention Deficiencies (Part 4 - Yingkou, China)</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies</th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="7"><p class="cat-title">Yingkou,<br>China</p></td>
+                        <td>Spare tank of 20L capacity not provided for portable foam applicator unit.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure spare foam liquid (20L) is procured and permanently stowed directly next to the portable foam applicators in the Engine Room per SOLAS requirements.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>A.P.T. not marked as enclosed space.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Properly stencil "ENCLOSED SPACE - DO NOT ENTER" at the entrances of all applicable tanks and voids to comply with safety procedures.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Closing device of the sounding pipe terminal of sludge tank out of work.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Maintain sounding pipe self-closing valves and weighted caps. Repair or replace immediately if the spring mechanism is seized or broken.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>A-60 Class division of escape trunk is damaged... bottom door sill not insulated.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Inspect structural fire protection regularly. Repair damaged A-60 insulation immediately to prevent the spread of fire through escape trunks.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Notices to Mariners (NTM) not corrected up to date.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> The Second Officer must update all charts and navigational publications with the latest weekly NTMs prior to commencing any voyage.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Voyage plan not in compliance with SOLAS Ch. V.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure voyage plans cover "berth-to-berth" routing, including pilotage waters, and meet all criteria specified in SOLAS Ch. V Reg 34.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_6" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_6" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_6" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Forecastle bell not available on board.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Ensure sound signaling appliances (bell and gong) are properly mounted, free of paint buildup, and readily available at the bow.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_yin_7" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_7" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_yin_7" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide13">
+    <h2 class="slide-title">Area 9: Analysis of Actual Detention Deficiencies (Part 5 - Port Moody, Canada)</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Category</th>
+                        <th style="width: 23%;">Common Deficiencies</th>
+                        <th style="width: 35%;">Detailed Functional Check & Actions Required</th>
+                        <th style="width: 16%;">Result</th>
+                        <th style="width: 14%;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-start">
+                        <td rowspan="10"><p class="cat-title">Port Moody,<br>Canada</p></td>
+                        <td>Financial security certificates for repatriation/liability expired.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Master must immediately print and display updated documentary evidence of financial security in all crew messrooms upon receipt from the company.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_1" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_1" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_1" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Portable gas detectors last calibrated in April 2024 (expired).<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Officers must monitor calibration dates closely. Apply for calibration or raise requisitions for new detectors at least two months prior to the 180-day expiry.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_2" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_2" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_2" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Passage plan not amended despite change in plan and anchored at arrival.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Second Officer must strictly follow SMS to prepare deviation plans and pilot route plans. Master and Chief Officer must actively supervise and review the amended routes.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_3" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_3" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_3" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Rescue Boat Launching Davit not operational.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Crews must regularly inspect and test the rescue boat davit using all three methods (electric, accumulator, manual). Replace faulty electrical contactors immediately.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_4" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_4" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_4" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Oil Filtering Equipment (OWS) not operational and 15 ppm monitor could not be tested.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Chief Engineer must conduct targeted onboard training. Engine crew must be thoroughly familiar with OWS operation, pressure control, and the 15ppm simulation test.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_5" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_5" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_5" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Food waste stored in meat room.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Chief Cook must strictly follow the Garbage Management Plan. Store food waste in designated bins/refrigerators only. Master to conduct random galley inspections.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_6" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_6" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_6" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Safety Management Audit required (ISM failure).<span class="action-code">(Code: 19)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Master must motivate crew to follow SMS strictly. Enhance company supervision, submit weekly non-conformity reports, and execute internal/external additional audits.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_7" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_7" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_7" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Insufficient Provision quantity till next port.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> When scheduling long voyages or trips to remote ports, the Master must order sufficient provisions ahead of time to cover the entire duration safely.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_8" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_8" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_8" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Emergency Switchboard and BWMS breakers taped on/under not to trip.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Never use tape to block breaker names or switches. Implement proper Lock-out/Tag-out (LOTO) procedures or physical guards if misoperation prevention is needed.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_9" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_9" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_9" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Crew working in ER without hearing protection / Working on rescue boat without handrails/harness.<span class="action-code">(Code: 17)</span></td>
+                        <td class="check-item-td"><span class="bullet">■</span> Strictly enforce the PPE Matrix. Crew must wear ear muffs in loud machinery spaces and safety harnesses when working near the ship's side. Conduct pre-task toolbox talks.</td>
+                        <td>
+                            <div class="result-radios">
+                                <label class="radio-item"><input type="radio" name="rdc_pm_10" value="Pass"><span>Pass</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_10" value="Fail"><span>Fail</span></label>
+                                <label class="radio-item"><input type="radio" name="rdc_pm_10" value="NA"><span>N/A</span></label>
+                            </div>
+                        </td>
+                        <td><textarea class="form-input" placeholder="Notes..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <button class="floating-print-btn" onclick="window.print()" title="Print Checklist">
     <i class="fa-solid fa-print"></i>
 </button>
 
-<div class="slide-container" id="slide9">
+<div class="slide-container" id="slide14">
     <h2 class="slide-title" style="color: #b91c1c; border-bottom-color: #ef4444;">Immediate Actions on PSCO Boarding</h2>
     <div class="content-area" style="justify-content: center;">
         
